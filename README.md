@@ -102,4 +102,60 @@ $ find ~/boost_1_69_0 -type f -name "any.hpp"
 ```bash
 $ grep -r "boost::asio" ~/boost_1_69_0 > ~/boost_1_69_0_files_with_boost_asio.txt
 ```
-этот файл - [boost_1_69_0_files_with_boost_asio.txt]()
+этот файл - [boost_1_69_0_files_with_boost_asio.txt](https://github.com/kaworururur/lab01/blob/main/boost_1_69_0_files_with_boost_asio.txt)
+
+8. Скомпилирутйе *boost*.
+```bash
+$ ./bootstrap.sh --prefix=boost_output
+```
+```bash
+Building Boost.Build engine with toolset gcc... tools/build/src/engine/bin.linuxx86_64/b2
+Unicode/ICU support for Boost.Regex?... not found.
+Backing up existing Boost.Build configuration in project-config.jam.2
+Generating Boost.Build configuration in project-config.jam...
+
+Bootstrapping is done. To build, run:
+
+    ./b2
+    
+To adjust configuration, edit 'project-config.jam'.
+Further information:
+
+   - Command line help:
+     ./b2 --help
+     
+   - Getting started guide: 
+     http://www.boost.org/more/getting_started/unix-variants.html
+     
+   - Boost.Build documentation:
+     http://www.boost.org/build/doc/html/index.html
+```
+```bash
+$ ./bootstrap.sh --prefix=boost_output --with-icu= 
+```
+```bash
+Building Boost.Build engine with toolset gcc... tools/build/src/engine/bin.linuxx86_64/b2
+Unicode/ICU support for Boost.Regex?... not found.
+Backing up existing Boost.Build configuration in project-config.jam.3
+Generating Boost.Build configuration in project-config.jam...
+
+Bootstrapping is done. To build, run:
+
+    ./b2
+    
+To adjust configuration, edit 'project-config.jam'.
+Further information:
+
+   - Command line help:
+     ./b2 --help
+     
+   - Getting started guide: 
+     http://www.boost.org/more/getting_started/unix-variants.html
+     
+   - Boost.Build documentation:
+     http://www.boost.org/build/doc/html/index.html
+```
+```bash
+$ ./b2 install >> logs.txt
+```
+logs
