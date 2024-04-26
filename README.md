@@ -158,4 +158,10 @@ Further information:
 ```bash
 $ ./b2 install >> logs.txt
 ```
-logs
+[logs](https://github.com/kaworururur/lab01/blob/main/logs.txt)
+
+9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию `~/boost-libs`.
+```bash
+$ mv boost_output/lib/*.a ~/boost-libs
+```
+
