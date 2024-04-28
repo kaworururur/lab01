@@ -164,4 +164,58 @@ $ ./b2 install >> logs.txt
 ```bash
 $ mv boost_output/lib/*.a ~/boost-libs
 ```
-
+10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
+```bash
+$ du -sh ~/boost-libs/*
+```
+```
+4,0K	/home/kaworu/boost-libs/libboost_atomic.a
+236K	/home/kaworu/boost-libs/libboost_chrono.a
+148K	/home/kaworu/boost-libs/libboost_container.a
+24K	/home/kaworu/boost-libs/libboost_context.a
+344K	/home/kaworu/boost-libs/libboost_contract.a
+152K	/home/kaworu/boost-libs/libboost_date_time.a
+4,0K	/home/kaworu/boost-libs/libboost_exception.a
+240K	/home/kaworu/boost-libs/libboost_fiber.a
+416K	/home/kaworu/boost-libs/libboost_filesystem.a
+880K	/home/kaworu/boost-libs/libboost_graph.a
+172K	/home/kaworu/boost-libs/libboost_iostreams.a
+2,1M	/home/kaworu/boost-libs/libboost_locale.a
+580K	/home/kaworu/boost-libs/libboost_math_c99.a
+488K	/home/kaworu/boost-libs/libboost_math_c99f.a
+504K	/home/kaworu/boost-libs/libboost_math_c99l.a
+2,8M	/home/kaworu/boost-libs/libboost_math_tr1.a
+2,8M	/home/kaworu/boost-libs/libboost_math_tr1f.a
+2,8M	/home/kaworu/boost-libs/libboost_math_tr1l.a
+216K	/home/kaworu/boost-libs/libboost_prg_exec_monitor.a
+1,6M	/home/kaworu/boost-libs/libboost_program_options.a
+84K	/home/kaworu/boost-libs/libboost_random.a
+2,7M	/home/kaworu/boost-libs/libboost_regex.a
+1,2M	/home/kaworu/boost-libs/libboost_serialization.a
+24K	/home/kaworu/boost-libs/libboost_stacktrace_addr2line.a
+24K	/home/kaworu/boost-libs/libboost_stacktrace_backtrace.a
+16K	/home/kaworu/boost-libs/libboost_stacktrace_basic.a
+4,0K	/home/kaworu/boost-libs/libboost_stacktrace_noop.a
+4,0K	/home/kaworu/boost-libs/libboost_system.a
+2,3M	/home/kaworu/boost-libs/libboost_test_exec_monitor.a
+56K	/home/kaworu/boost-libs/libboost_timer.a
+2,3M	/home/kaworu/boost-libs/libboost_unit_test_framework.a
+4,6M	/home/kaworu/boost-libs/libboost_wave.a
+780K	/home/kaworu/boost-libs/libboost_wserialization.a
+```
+11. Найдите *топ10* самых "тяжёлых".
+```bash
+$find ~/boost-libs/ -type f -exec du -Sh {} + | sort -rh | head -n 10
+```
+```
+4,6M	/home/kaworu/boost-libs/libboost_wave.a
+2,8M	/home/kaworu/boost-libs/libboost_math_tr1l.a
+2,8M	/home/kaworu/boost-libs/libboost_math_tr1f.a
+2,8M	/home/kaworu/boost-libs/libboost_math_tr1.a
+2,7M	/home/kaworu/boost-libs/libboost_regex.a
+2,3M	/home/kaworu/boost-libs/libboost_unit_test_framework.a
+2,3M	/home/kaworu/boost-libs/libboost_test_exec_monitor.a
+2,1M	/home/kaworu/boost-libs/libboost_locale.a
+1,6M	/home/kaworu/boost-libs/libboost_program_options.a
+1,2M	/home/kaworu/boost-libs/libboost_serialization.a
+```
